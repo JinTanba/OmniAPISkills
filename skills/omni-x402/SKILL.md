@@ -30,7 +30,7 @@ AI Agents can autonomously discover available endpoints, pay the exact cost per 
 | `/instagram/posts` | POST | $0.001 | Get Instagram posts by username |
 | `/instagram/profile` | POST | $0.001 | Get Instagram profile by username |
 
-**Server URL**: Replace `{SERVER_URL}` with the actual deployed server URL throughout this document.
+**Server URL**: `https://omniapi-production-7de2.up.railway.app`
 
 ## Prerequisites & Setup
 
@@ -96,13 +96,13 @@ All requests are made via `npx awal@latest x402 pay`, which handles USDC payment
 ### Twitter — Get User Profile
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/user?username=elonmusk"
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/user?username=elonmusk"
 ```
 
 ### Twitter — Get User Tweets
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/user-tweets?user=44196397&count=20"
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/user-tweets?user=44196397&count=20"
 ```
 
 The `user` parameter is the Twitter user ID (numeric). Use the `/user` endpoint first to get the ID from a username.
@@ -110,7 +110,7 @@ The `user` parameter is the Twitter user ID (numeric). Use the `/user` endpoint 
 ### Twitter — Get Multiple Users
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/get-users-v2?users=44196397,50393960"
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/get-users-v2?users=44196397,50393960"
 ```
 
 Accepts comma-separated user IDs.
@@ -118,25 +118,25 @@ Accepts comma-separated user IDs.
 ### Twitter — Get Followings
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/followings?user=44196397&count=20"
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/followings?user=44196397&count=20"
 ```
 
 ### Twitter — Get Followers
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/followers?user=44196397&count=20"
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/followers?user=44196397&count=20"
 ```
 
 ### Instagram — Get Posts
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/instagram/posts" -X POST -d '{"username": "instagram"}'
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/instagram/posts" -X POST -d '{"username": "instagram"}'
 ```
 
 ### Instagram — Get Profile
 
 ```bash
-npx awal@latest x402 pay "{SERVER_URL}/instagram/profile" -X POST -d '{"username": "instagram"}'
+npx awal@latest x402 pay "https://omniapi-production-7de2.up.railway.app/instagram/profile" -X POST -d '{"username": "instagram"}'
 ```
 
 **Note**: Instagram endpoints use POST with a JSON body. Use `-X POST -d '{...}'` to send the request body.
@@ -230,7 +230,7 @@ npx awal@latest x402 pay "{SERVER_URL}/instagram/profile" -X POST -d '{"username
 Retrieve the full list of available endpoints and their prices:
 
 ```bash
-curl {SERVER_URL}/catalog
+curl https://omniapi-production-7de2.up.railway.app/catalog
 ```
 
 Returns:
@@ -250,7 +250,7 @@ Returns:
 ## Health Check
 
 ```bash
-curl {SERVER_URL}/health
+curl https://omniapi-production-7de2.up.railway.app/health
 ```
 
 Returns: `{"status": "ok"}`
